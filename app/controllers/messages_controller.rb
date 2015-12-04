@@ -16,6 +16,12 @@ class MessagesController < ApplicationController
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'index'
     end
-  ## ここまで
   end
+  ## ここまで
+  
+  private
+  def message_params
+    params.require(:message).permit(:name, :body)
+  end
+  
 end
